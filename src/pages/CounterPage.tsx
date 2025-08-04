@@ -2,10 +2,7 @@ import {useState}from "react";
 
 export default function CounterPage() {
   const [counter, setCounter] = useState(0);
-  
-  const addCounter =() => {
-    setCounter(counter+1);
-  };
+
 
 
   return (
