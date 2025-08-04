@@ -1,4 +1,4 @@
-import { type TaskCardProps } from "../libs/Todolist";
+//import { type TaskCardProps } from "../libs/Todolist";
 
 type Props = {
   id: string;
