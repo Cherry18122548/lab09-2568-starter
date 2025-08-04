@@ -1,11 +1,13 @@
-interface props {
+import { type TaskCardProps } from "../libs/Todolist";
+
+type Props = {
   id: string;
   title: string;
   description: string;
   isDone: boolean;
-  deleteTaskFunc: (taskId: string) => void; // callback function
-  toggleDoneTaskFunc: (taskId: string) => void; // callback function
-}
+  deleteTaskFunc: (taskId: string) => void;
+  toggleDoneTaskFunc: (taskId: string) => void;
+};
 
 export default function TaskCard({
   id,
@@ -14,8 +16,7 @@ export default function TaskCard({
   isDone,
   deleteTaskFunc,
   toggleDoneTaskFunc,
-}: props) {
-  // callback function when delete button is clicked
+}: Props) {
   const deleteBtnOnClick = () => {
     deleteTaskFunc(id);
   };

@@ -26,31 +26,36 @@ function App() {
   ]);
 
   const handleAdd = (newTask: TaskCardProps) => {
-    //make a new array based on old "tasks" and add newTask as last one
     const newTasks = [...tasks, newTask];
     setTasks(newTasks);
   };
 
-  // Define the function with proper type
   const deleteTask = (taskId: string) => {
-    const newTasks = tasks.filter((task: TaskCardProps) => task.id !== taskId);
+    const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
   };
 
-  // Define the function with proper type
   const toggleDoneTask = (taskId: string) => {
-    const newTasks = tasks.map((todo: TaskCardProps) =>
+    const newTasks = tasks.map((todo) =>
       todo.id === taskId ? { ...todo, isDone: !todo.isDone } : todo
     );
     setTasks(newTasks);
   };
 
+  // นับจำนวนรายการทั้งหมดและจำนวนรายการที่เสร็จแล้ว
+  const totalCount = tasks.length;
+  const doneCount = tasks.filter((task) => task.isDone).length;
+
   return (
     <div className="col-12 m-2 p-0">
       <div className="container text-center">
         <h2>Todo List</h2>
-        <span className="m-2">All : () Done : ()</span>
-        {/* Modal Component */}
+        {/* แสดงจำนวนรายการ */}
+        <span className="m-2">
+          All : {totalCount} Done : {doneCount}
+        </span>
+
+        {/* ปุ่มเปิด Modal */}
         <button
           type="button"
           className="btn btn-primary my-3"
@@ -60,7 +65,10 @@ function App() {
           Add
         </button>
 
+        {/* Modal for adding new task */}
         <TodoModal onAdd={handleAdd} />
+
+        {/* แสดงรายการ Task */}
         <>
           {tasks.map((task) => (
             <TaskCard

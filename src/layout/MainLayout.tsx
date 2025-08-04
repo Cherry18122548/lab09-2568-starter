@@ -8,7 +8,7 @@ export default function MainLayout() {
       <div className="row h-100">
         <div className="col-2 col-md-2 p-0">
           {/* Sidebar ซ้าย */}
-          <Sidebar userName="chanadda" type="admin" />
+          <Sidebar userName="Woranat" type="admin" />
         </div>
         <div className="col-10 col-md-10 p-0">
           {/* Header ด้านบน */}
@@ -16,11 +16,17 @@ export default function MainLayout() {
 
           {/* เนื้อหาหลัก */}
           <main className="flex-grow-1 p-4 min-vh-100">
-            <Outlet />
-          </main>
+          {/* Result Text */}
+          {/*<div className="container text-center">
+            <h2>Counter Page</h2>
+            <p>Counter:</p>
+            <button>Increase</button>
+          </div>*/}
+          <Outlet />
+        </main>
 
           {/* Footer ด้านล่าง */}
-          <Footer year="2026" fullName="chanadda" studentId="67062039" />
+          <Footer year="2026" fullName="Woranat Thammawit" studentId="670612130" />
         </div>
       </div>
     </div>
